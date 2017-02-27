@@ -1,19 +1,14 @@
+import org.junit.*;
 import java.util.*;
 
-import org.junit.Test;
-
-public class TestRobustness
+public class TestRobustness extends AbstractTest
 {
-	Pathfinder pathfinder = new Pathfinder();
-	Validation validation = new Validation();
-
 	@Test
 	public void nullList()
 	{
 		List<Integer> list = null;
 		int pos = 0;
-		List<Integer> result = pathfinder.findPath(list, pos);
-		validation.validateResult(list, pos, result);
+		test(list, pos);
 	}
 
 	@Test
@@ -21,8 +16,7 @@ public class TestRobustness
 	{
 		List<Integer> list = Arrays.asList();
 		int pos = 0;
-		List<Integer> result = pathfinder.findPath(list, pos);
-		validation.validateResult(list, pos, result);
+		test(list, pos);
 	}
 
 	@Test
@@ -30,8 +24,7 @@ public class TestRobustness
 	{
 		List<Integer> list = Arrays.asList(1, 2, 0);
 		int pos = 7;
-		List<Integer> result = pathfinder.findPath(list, pos);
-		validation.validateResult(list, pos, result, -1);
+		test(list, pos, -1);
 	}
 
 	@Test
@@ -39,8 +32,7 @@ public class TestRobustness
 	{
 		List<Integer> list = Arrays.asList(1, 2, 0);
 		int pos = -1;
-		List<Integer> result = pathfinder.findPath(list, pos);
-		validation.validateResult(list, pos, result, -1);
+		test(list, pos, -1);
 	}
 
 	@Test
@@ -48,8 +40,7 @@ public class TestRobustness
 	{
 		List<Integer> list = Arrays.asList(0, 1, 2, 0, 1);
 		int pos = 2;
-		List<Integer> result = pathfinder.findPath(list, pos);
-		validation.validateResult(list, pos, result);
+		test(list, pos);
 	}
 
 	@Test
@@ -57,8 +48,7 @@ public class TestRobustness
 	{
 		List<Integer> list = Arrays.asList(1, 3, null, 2, null);
 		int pos = 1;
-		List<Integer> result = pathfinder.findPath(list, pos);
-		validation.validateResult(list, pos, result);
+		test(list, pos);
 	}
 
 	@Test
@@ -66,8 +56,7 @@ public class TestRobustness
 	{
 		List<Integer> list = Arrays.asList(0, 2, -2, 2, 1);
 		int pos = 2;
-		List<Integer> result = pathfinder.findPath(list, pos);
-		validation.validateResult(list, pos, result);
+		test(list, pos);
 	}
 
 	@Test
@@ -75,7 +64,6 @@ public class TestRobustness
 	{
 		List<Integer> list = Arrays.asList(4, -1, 4, 1, -1, 2, -2);
 		int pos = 1;
-		List<Integer> result = pathfinder.findPath(list, pos);
-		validation.validateResult(list, pos, result);
+		test(list, pos);
 	}
 }
