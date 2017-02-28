@@ -11,18 +11,18 @@ abstract class AbstractTest
 	public void test(List<Integer> list, int pos, int threshold)
 	{
 		Pathfinder pathfinder = new Pathfinder();
-	    List<Integer> path = pathfinder.findPath(list, pos);
-        String validation = validateResult(list, pos, path, threshold);
+		List<Integer> path = pathfinder.findPath(list, pos);
+		String validation = validateResult(list, pos, path, threshold);
 
-        if (validation != null)
-        {
-        	StringBuffer error = new StringBuffer("\n");
-            error.append("list: ").append(list).append("\n");
-            error.append("pos: ").append(pos).append("\n");
-            error.append("findPath returned: ").append(path).append("\n");
-            error.append("ERROR: ").append(validation);
-        	fail(error.toString());
-        }
+		if (validation != null)
+		{
+			StringBuffer error = new StringBuffer("\n");
+			error.append("list: ").append(list).append("\n");
+			error.append("pos: ").append(pos).append("\n");
+			error.append("findPath returned: ").append(path).append("\n");
+			error.append("ERROR: ").append(validation);
+			fail(error.toString());
+		}
 	}
 	
 	private static String validateResult(List<Integer> list, int pos, List<Integer> path, int threshold)
