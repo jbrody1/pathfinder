@@ -1,5 +1,10 @@
-import static org.junit.Assert.*;
-import java.util.*;
+package test;
+import static org.junit.Assert.fail;
+
+import java.util.List;
+
+import problem.Pathfinder;
+import solution.MyPathfinder;
 
 abstract class AbstractTest
 {
@@ -10,7 +15,7 @@ abstract class AbstractTest
 
 	public void test(List<Integer> list, int pos, int threshold)
 	{
-		Pathfinder pathfinder = new Pathfinder();
+		Pathfinder pathfinder = new MyPathfinder();
 		List<Integer> path = pathfinder.findPath(list, pos);
 		String validation = validateResult(list, pos, path, threshold);
 
